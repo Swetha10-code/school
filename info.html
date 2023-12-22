@@ -1,0 +1,25 @@
+<table border="1">
+      	<tr>
+      		<td>sno</td>
+      		<td>title</td>
+      		<td>reason</td>
+      		<?php
+                 include_once("configuration_staff.php");
+                 $result=mysqli_query($x,"SELECT * FROM info ORDER BY sno DESC");
+                 while ($res=mysqli_fetch_assoc($result))
+                 {
+                 	echo "<tr>";
+         echo "<td> ".$res['sno']."</td>";
+        echo "<td> ".$res['title']."</td>";
+        echo "<td> ".$res['rea']."</td>";
+        echo "<td>
+             <button>
+             <a href=\"delete.php?sno=$res[sno]\" onclick=\"return confirm('are you sure you want to delete')\">delete</a></button>
+        </td>";
+        echo "</tr>";
+
+                 }
+      		?>
+      	</tr>
+      	
+      </table>
